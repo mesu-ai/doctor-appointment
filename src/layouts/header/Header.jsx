@@ -2,8 +2,8 @@ import { HEADER_HEIGHT } from "../../config/constants";
 
 const Header = () => {
   return (
-    <div className="bg-action" style={{height:`${HEADER_HEIGHT}px`}}>
-      <p>Welcome to Appointment Portal</p>
+    <div className=" flex flex-col justify-center items-center" style={{height:`${HEADER_HEIGHT}px`}}>
+     <p>Online Appointment Portal</p>
     </div>
   );
 };
