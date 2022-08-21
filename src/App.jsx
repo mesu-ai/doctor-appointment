@@ -1,13 +1,10 @@
-
-import './App.css';
-import BaseLayouts from './layouts/BaseLayouts';
-import HomePage from './pages/homepage/HomePage';
+import "./App.css";
+import BaseLayouts from "./layouts/BaseLayouts";
 
 function App() {
   return (
     <div className="App">
-      <BaseLayouts/>
-      
+      <BaseLayouts />
     </div>
   );
 }
