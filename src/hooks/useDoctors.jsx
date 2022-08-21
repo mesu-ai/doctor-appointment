@@ -1,6 +1,6 @@
 import { useEffect, useState, useTransition } from "react";
 
-const useDoctor = () => {
+const useDoctors = () => {
   const [doctors,setDoctors]=useState([]);
   const [isPending, startTransition] = useTransition();
   useEffect(()=>{
@@ -25,4 +25,4 @@ const useDoctor = () => {
   return [isPending,doctors,setDoctors];
 };
 
-export default useDoctor;
+export default useDoctors;
