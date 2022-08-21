@@ -23,6 +23,7 @@ const HomePage = () => {
         doctors.map((doctor) => (
           <DoctorCard
             key={doctor.id}
+            id={doctor.id}
             photo={doctorImg}
             name={doctor?.name}
             organization={doctor?.org}
