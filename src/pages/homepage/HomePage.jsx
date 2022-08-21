@@ -9,11 +9,11 @@ const HomePage = () => {
   console.log(doctors);
   return (
     <div
-      className="container mx-auto px-10 mt-10"
-      style={{ height: `${HOMEPAGE_HEIGHT}vh` }}
+      className="container mx-auto px-10 my-10"
+      // style={{ height: `${HOMEPAGE_HEIGHT}vh` }}
     >
       {isPending && <p>Loading Data...</p>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <img className="rounded-lg opacity-60" src={appointmentCover} alt="" />
 
