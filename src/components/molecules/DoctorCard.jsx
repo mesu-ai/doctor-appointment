@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import defaultImg from "../../assets/john.png";
 
 
-const DoctorCard = ({id='',photo, name='',organization=''}) => {
+
+const DoctorCard = ({doctor={}}) => {
   const navigate=useNavigate();
-  const handleAppointment=(id)=>(event)=>{
-    console.log(id,event)
-    navigate("/appointment")
+  const handleAppointment=(doctor)=>(event)=>{
+    console.log(doctor,event)
+    navigate('/appointment',{ state:{doctor:doctor} });
   }
   
   return (
@@ -14,19 +16,19 @@ const DoctorCard = ({id='',photo, name='',organization=''}) => {
       <div className="col-span-2 flex items-center">
         <img
           className="rounded-full bg-ghostwhite"
-          src={photo}
+          src={defaultImg}
           height="50px"
           width="50px"
           alt="Doctor_Photo"
         />
         <div className="text-start ml-3">
-          <p className="text-darkblue text-lg font-semibold">{name}</p>
-          <p className="text-darkblue">{organization}</p>
+          <p className="text-darkblue text-lg font-semibold">{doctor?.name}</p>
+          <p className="text-darkblue">{doctor?.org}</p>
         </div>
       </div>
       <div className="my-auto">
         <button
-          onClick={handleAppointment(id)}
+          onClick={handleAppointment(doctor)}
           className="bg-info text-white px-3 py-2 rounded-lg"
           type="button"
         >

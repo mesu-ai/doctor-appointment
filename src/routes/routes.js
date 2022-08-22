@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import HomePage from '../pages/homepage/HomePage';
 const Appointment =lazy(()=>import('../pages/appointment/Appointment'));
 

@@ -1,6 +1,5 @@
-import { HOMEPAGE_HEIGHT } from "../../config/constants";
+// import { HOMEPAGE_HEIGHT } from "../../config/constants";
 import useDoctors from "../../hooks/useDoctors";
-import doctorImg from "../../assets/john.png";
 import appointmentCover from "../../assets/appointment-cover.png";
 import DoctorCard from "../../components/molecules/DoctorCard";
 
@@ -23,10 +22,7 @@ const HomePage = () => {
         doctors.map((doctor) => (
           <DoctorCard
             key={doctor.id}
-            id={doctor.id}
-            photo={doctorImg}
-            name={doctor?.name}
-            organization={doctor?.org}
+            doctor={doctor}
           />
         ))}
         </div>
