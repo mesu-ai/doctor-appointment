@@ -29,7 +29,7 @@
 }
 
 .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
-  color: #354fd3;
+  color: green;
   display: inline-block;
   width: 2.7rem;
   line-height: 2.7rem;
@@ -39,7 +39,7 @@
 }
 .react-datepicker__day-name{
   font-size: 1rem;
-  color: rgb(5, 2, 185) ;
+  color: rgb(1, 1, 10) ;
   /* background-color: rgb(201, 16, 16); */
 }
 

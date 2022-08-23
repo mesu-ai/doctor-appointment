@@ -21,7 +21,7 @@ const Appointment = () => {
 	const [startDate, setStartDate] = useState(null);
 	const { doctor } = useLocation()?.state;
 
-	console.log(doctor.availibility);
+	console.log(doctor.availibility,startDate);
 
 	const checkAvailableDay = () => {
 		const availableDays = [];
@@ -56,6 +56,10 @@ const Appointment = () => {
 		);
 	};
 
+	// if(startDate){
+	// 	document.getElementById('datePickerId').setAttribute(showTimeSelect)
+	// }
+
 	// console.log(doctor);
 	return (
 		<div className='h-screen container mx-auto'>
@@ -64,7 +68,7 @@ const Appointment = () => {
 				<div>
 					<DatePicker
 						className='w-full'
-						wrapperClassName='w-full bg-red-500 '
+						wrapperClassName='w-full py-2 '
 						open
 						// todayButton="Today"
 						filterDate={isWeekday}
@@ -73,14 +77,16 @@ const Appointment = () => {
 							setStartDate(date);
 						}}
 						minDate={moment().toDate()}
-						showTimeSelect
-						timeFormat='HH:mm'
-						timeIntervals={15}
-						timeCaption='time'
+						// showTimeSelect
+						// timeFormat='HH:mm'
+						// timeIntervals={15}
+						// timeCaption='time'
 						dateFormat='MMMM d, yyyy h:mm aa'
 					/>
 				</div>
-				<div className='col-span-2'>Form</div>
+				<div className='col-span-2'>
+				Form
+				</div>
 			</div>
 		</div>
 	);
