@@ -13,7 +13,6 @@ const weekdays = {
   fri: 5,
   sat: 6,
 };
-const wkday=[0,3];
 
 const Appointment = () => {
   const [available, setAvailable] = useState([]);
@@ -21,10 +20,6 @@ const Appointment = () => {
   const [startDate, setStartDate] = useState(null);
   const { doctor } = useLocation()?.state;
 
-  // function disabledDate(current) {
-  // 	// Can not select sundays and predfined days
-  // 	return moment(current).day() === 0;
-  // }
   console.log(doctor.availibility);
 
   const checkAvailableDay = () => {
@@ -46,33 +41,18 @@ const Appointment = () => {
     return availableDays;
   };
 
-  // console.log(availableDays);
-
-  // var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-  // console.log(dayName);
-
-  // const d = new Date('Friday');
-  // console.log(d.getDay(d));
-  // const date = new Date();
-
   const isWeekday = (current) => {
     const result = checkAvailableDay();
-    // const day = date.getDay(date);
 
-    // if(result.length >0){
-    // 	for (const iterator of result) {
-    // 		console.log(iterator);
-    // 		return day===iterator;
-
-    // 	}
-    // }
-		const dd= wkday.map(date => date === moment(current).day()).join().split('||');
-		console.log(dd);
-
-		return moment(current).day() === result[0] || moment(current).day() === result[1] || moment(current).day() === result[2];
-		
-    // return wkday.find(date => date === current.getDay(current));
+    return (
+      moment(current).day() === result[0] ||
+      moment(current).day() === result[1] ||
+      moment(current).day() === result[2] ||
+      moment(current).day() === result[3] ||
+      moment(current).day() === result[4] ||
+      moment(current).day() === result[5] ||
+      moment(current).day() === result[6]
+    );
   };
 
   // console.log(doctor);
@@ -98,7 +78,7 @@ const Appointment = () => {
             onChange={(date) => {
               setStartDate(date);
             }}
-						minDate={moment().toDate()}
+            minDate={moment().toDate()}
             // showTimeSelect
             timeFormat='HH:mm'
             timeIntervals={15}
