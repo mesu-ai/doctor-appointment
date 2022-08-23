@@ -4,13 +4,22 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 
+const weekdays = {
+  sun: 0,
+  mon: 1,
+  tue: 2,
+  wed: 3,
+  thu: 4,
+  fri: 5,
+  sat: 6,
+};
+const wkday=[0,3];
+
 const Appointment = () => {
-	const [available,setAvailable]=useState([]);
+  const [available, setAvailable] = useState([]);
   // const [startDate, setStartDate] = useState(new Date());
   const [startDate, setStartDate] = useState(null);
   const { doctor } = useLocation()?.state;
-
-	
 
   // function disabledDate(current) {
   // 	// Can not select sundays and predfined days
@@ -18,42 +27,26 @@ const Appointment = () => {
   // }
   console.log(doctor.availibility);
 
-  const weekdays = {
-    sun: 0,
-    mon: 1,
-    tue: 2,
-    wed: 3,
-    thu: 4,
-    fri: 5,
-    sat: 6,
-  };
-
   const checkAvailableDay = () => {
-		const availableDays=[];
-   
+    const availableDays = [];
+
     for (const key in weekdays) {
-			 	const dayNumber = weekdays[key];
-		
+      const dayNumber = weekdays[key];
+
       for (const available in doctor.availibility) {
-        
         if (available == key) {
           // setAvailable(...available,dayNumber);
-					availableDays.push(dayNumber)
-          console.log('match');
-					
+          availableDays.push(dayNumber);
+          // console.log('match');
         } else if (available != key) {
-          console.log('unmatch');
+          // console.log('unmatch');
         }
       }
     }
-		return availableDays;
-
+    return availableDays;
   };
-	
 
-	// console.log(availableDays);
-
-
+  // console.log(availableDays);
 
   // var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -63,19 +56,23 @@ const Appointment = () => {
   // console.log(d.getDay(d));
   // const date = new Date();
 
+  const isWeekday = (current) => {
+    const result = checkAvailableDay();
+    // const day = date.getDay(date);
 
-  const isWeekday = (date) => {
-		const result= checkAvailableDay();
-    const day = date.getDay(date);
-		// if(result.length >0){
-		// 	for (const iterator of result) {
-		// 		console.log(iterator);
-		// 		return day===iterator;
-				
-		// 	}
-		// }
-		return day===2;
-    
+    // if(result.length >0){
+    // 	for (const iterator of result) {
+    // 		console.log(iterator);
+    // 		return day===iterator;
+
+    // 	}
+    // }
+		const dd= wkday.map(date => date === moment(current).day()).join().split('||');
+		console.log(dd);
+
+		return moment(current).day() === result[0] || moment(current).day() === result[1] || moment(current).day() === result[2];
+		
+    // return wkday.find(date => date === current.getDay(current));
   };
 
   // console.log(doctor);
@@ -101,6 +98,7 @@ const Appointment = () => {
             onChange={(date) => {
               setStartDate(date);
             }}
+						minDate={moment().toDate()}
             // showTimeSelect
             timeFormat='HH:mm'
             timeIntervals={15}
