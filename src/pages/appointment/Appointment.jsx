@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -15,7 +15,7 @@ const weekdays = {
 };
 
 const Appointment = () => {
-  const [available, setAvailable] = useState([]);
+  // const [available, setAvailable] = useState([]);
   // const [startDate, setStartDate] = useState(new Date());
   const [startDate, setStartDate] = useState(null);
   const { doctor } = useLocation()?.state;
@@ -29,11 +29,11 @@ const Appointment = () => {
       const dayNumber = weekdays[key];
 
       for (const available in doctor.availibility) {
-        if (available == key) {
+        if (available === key) {
           // setAvailable(...available,dayNumber);
           availableDays.push(dayNumber);
           // console.log('match');
-        } else if (available != key) {
+        } else if (available !== key) {
           // console.log('unmatch');
         }
       }
@@ -79,7 +79,7 @@ const Appointment = () => {
               setStartDate(date);
             }}
             minDate={moment().toDate()}
-            // showTimeSelect
+            showTimeSelect
             timeFormat='HH:mm'
             timeIntervals={15}
             timeCaption='time'
