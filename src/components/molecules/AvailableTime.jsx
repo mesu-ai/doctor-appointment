@@ -3,12 +3,12 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { generateTimeSlot } from '../../utils/generateTimeSlot';
 
-const Calender = () => {
-	const { doctor } = useLocation()?.state;
-
-  console.log(doctor?.availibility);
+const AvailableTime = ({doctor,day,availibility}) => {
+  // const { doctor } = useLocation()?.state;
+  console.log(availibility);
+  
 	const availableTime = `${doctor?.availibility?.wed}`;
-	 
+  console.log(doctor);
 	const stime = moment(`${availableTime.split('-')[0]}`, 'h:mm A').format('HH:mm');
 	const etime = moment(`${availableTime.split('-')[1]}`, 'h:mm A').format('HH:mm');
 	console.log(stime);
@@ -33,4 +33,4 @@ const Calender = () => {
 	);
 };
 
-export default Calender;
+export default AvailableTime;

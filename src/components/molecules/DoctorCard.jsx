@@ -8,7 +8,7 @@ const DoctorCard = ({doctor={}}) => {
   const navigate=useNavigate();
   const handleAppointment=(doctor)=>(event)=>{
     console.log(doctor,event)
-    navigate('/calender',{ state:{doctor:doctor} });
+    navigate('/appointment',{ state:{doctor:doctor} });
   }
   
   return (
