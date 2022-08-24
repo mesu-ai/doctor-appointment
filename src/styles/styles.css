@@ -1,3 +1,7 @@
+input{
+  color: white;
+  outline: none;
+}
 
 .react-datepicker__month-container {
   float: left;

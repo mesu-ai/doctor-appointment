@@ -42,7 +42,7 @@ const Appointment = () => {
 	
 	return (
 		<div className='h-screen container mx-auto xl:px-10'>
-			<p>Appointment page</p>
+			
 			<div className='grid grid-cols-3'>
 				<div>
 				
