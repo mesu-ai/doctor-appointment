@@ -6,7 +6,7 @@ import { generateTimeSlot } from '../../utils/generateTimeSlot';
 const Calender = () => {
 	const { doctor } = useLocation()?.state;
 
-  console.log(doctor?.availibility);
+  // console.log(doctor?.availibility);
 	const availableTime = `${doctor?.availibility?.wed}`;
 	 
 	const stime = moment(`${availableTime.split('-')[0]}`, 'h:mm A').format('HH:mm');

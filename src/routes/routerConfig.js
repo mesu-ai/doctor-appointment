@@ -4,7 +4,7 @@ const routerConfig = (routes) => {
   if(!routes){
     return <div/>
   }
-  console.log(routes);
+  // console.log(routes);
   return (
    
     <BrowserRouter>

@@ -16,7 +16,7 @@ const weekdays = {
 
 const Calender = ({doctor,startDate, setStartDate}) => {
   // const [startDate, setStartDate] = useState(new Date());
-  console.log(doctor);
+  // console.log(doctor);
 
   const checkAvailableDay = () => {
 		const availableDays = [];
