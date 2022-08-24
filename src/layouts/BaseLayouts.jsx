@@ -7,14 +7,14 @@ import Header from "./header/Header";
 const BaseLayouts = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Suspense fallback={<p>Loading...</p>}>
         <main>
           {routerConfig(routes)}
         </main>
       </Suspense>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

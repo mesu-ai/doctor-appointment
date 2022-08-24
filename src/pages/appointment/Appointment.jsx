@@ -18,10 +18,10 @@ const weekdays = {
 const Appointment = () => {
 	// const [available, setAvailable] = useState([]);
 	// const [startDate, setStartDate] = useState(new Date());
-	const [startDate, setStartDate] = useState(null);
+	const [startDate, setStartDate] = useState(new Date());
 	const { doctor } = useLocation()?.state;
 
-	console.log(doctor.availibility,startDate);
+	console.log(startDate,doctor?.availibility);
 
 	const checkAvailableDay = () => {
 		const availableDays = [];
@@ -56,13 +56,32 @@ const Appointment = () => {
 		);
 	};
 
+  const handleDateSelect=()=>{
+    
+  }
+
+  const d=moment(startDate).format('LLLL');
+  const ddd=startDate.getTime();
+  console.log(ddd);
+
+  // const convert = (selected) => {
+  //   const day = selected.getDate();
+  //   const month =
+  //     selected.getMonth() >= 10
+  //       ? selected.getMonth() + 1
+  //       : `0${selected.getMonth() + 1}`;
+  //   const year = selected.getFullYear();
+
+  //   return `${year}/${month}/${day}`;
+  // };
+
 	// if(startDate){
 	// 	document.getElementById('datePickerId').setAttribute(showTimeSelect)
 	// }
 
 	// console.log(doctor);
 	return (
-		<div className='h-screen container mx-auto'>
+		<div className='h-screen container mx-auto xl:px-10'>
 			<p>Appointment page</p>
 			<div className='grid grid-cols-3'>
 				<div>
@@ -73,11 +92,13 @@ const Appointment = () => {
 						// todayButton="Today"
 						filterDate={isWeekday}
 						selected={startDate}
+            onSelect={handleDateSelect}
 						onChange={(date) => {
 							setStartDate(date);
+              console.log(date);
 						}}
 						minDate={moment().toDate()}
-						// showTimeSelect
+						showTimeSelect
 						// timeFormat='HH:mm'
 						// timeIntervals={15}
 						// timeCaption='time'
@@ -85,7 +106,13 @@ const Appointment = () => {
 					/>
 				</div>
 				<div className='col-span-2'>
-				Form
+          {/* {startDate && startDate.map(st=><p>{st.getTime()}</p>)
+          
+          } */}
+          {d}
+
+
+				
 				</div>
 			</div>
 		</div>
