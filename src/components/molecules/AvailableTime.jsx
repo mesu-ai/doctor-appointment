@@ -42,22 +42,26 @@ const AvailableTime = ({ slot }) => {
         </select>
       </div>
       <Card className='rounded-md px-10 py-8'>
-        <p className='text-start text-darkblue text-2xl font-bold'>Available Time Slot</p>
+        <p className='text-start text-darkblue text-2xl font-bold'>
+          Available Time Slot
+        </p>
         <p className='text-start text-lg font-semibold'>time </p>
 
-        <div className="mt-5">
-          <ul className='grid md:grid-cols-3 grid-cols-2 gap-5'>
+        <div className='mt-5'>
+          <ul className='grid md:grid-cols-3 xl:grid-cols-4 grid-cols-2 gap-5 xl:gap-3'>
             {timeSlots.slice(1, timeSlots.length - 1).map((slot, index) => (
               <li
                 key={index}
                 value={slot}
-                className='my-2 mx-3 font-bold text-darkblack ring-2 ring-cyan-500 w-fit px-4 py-2 rounded-md'
+                className='font-bold text-darkblack ring-2 ring-cyan-500 w-fit px-4 py-2 rounded-md'
               >
-              {slot}
+                {slot}
               </li>
             ))}
           </ul>
-          
+        </div>
+        <div className='flex justify-end mr-5 mt-5'>
+          <button type='button' className='text-white bg-action px-4 py-3 text-xl rounded-md'>Continue</button>
         </div>
       </Card>
     </div>
