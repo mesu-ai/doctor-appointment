@@ -1,6 +1,7 @@
 input{
   color: white;
   outline: none;
+  display: none;
 }
 
 .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
@@ -8,10 +9,10 @@ input{
   margin-top: 0px !important;
 }
 
-.react-datepicker__month-container {
+/* .react-datepicker__month-container {
   float: left;
   width: 400px;
-}
+} */
 
 .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
   margin-top: 15px;
@@ -61,8 +62,7 @@ input{
   border-radius: 0.5rem;
     background-color: #040506;
     color: #fff !important;
-    display: none;
-
+    
 }
 
 .react-datepicker__navigation-icon {

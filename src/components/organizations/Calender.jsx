@@ -3,7 +3,6 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calender.css';
-// import { checkAvailableDay } from '../../utils/checkAvailableDay';
 
 const weekdays = {
 	sun: 0,
@@ -16,9 +15,7 @@ const weekdays = {
 };
 
 const Calender = ({doctor,startDate, setStartDate}) => {
-  // const [startDate, setStartDate] = useState(new Date());
-  // console.log(doctor);
-
+ 
   const checkAvailableDay = () => {
 		const availableDays = [];
 
@@ -27,9 +24,9 @@ const Calender = ({doctor,startDate, setStartDate}) => {
 
 			for (const available in doctor.availibility) {
 				if (available === key) {
-					// setAvailable(...available,dayNumber);
+				
 					availableDays.push(dayNumber);
-					// console.log('match');
+					
 				} else if (available !== key) {
 					// console.log('unmatch');
 				}
@@ -59,7 +56,7 @@ const Calender = ({doctor,startDate, setStartDate}) => {
 						className='w-full'
 						wrapperClassName='w-full py-2 '
 						open
-						// todayButton="Today"
+						todayButton="Today"
 						filterDate={isWeekday}
 						selected={startDate}
 						onChange={(date) => {
@@ -67,10 +64,6 @@ const Calender = ({doctor,startDate, setStartDate}) => {
               console.log(date);
 						}}
 						minDate={moment().toDate()}
-						// showTimeSelect
-						// timeFormat='HH:mm'
-						// timeIntervals={15}
-						// timeCaption='time'
 						dateFormat='MMMM d, yyyy h:mm aa'
 					/>
       
