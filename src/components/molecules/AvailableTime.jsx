@@ -1,27 +1,26 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { generateTimeSlot } from '../../utils/generateTimeSlot';
 import Card from '../atoms/Card';
 import HeadingText from '../atoms/HeadingText';
 
-const AvailableTime = ({ slot, date }) => {
-	// const { doctor } = useLocation()?.state;
-	console.log(slot);
+const AvailableTime = ({ slot, date, doctor }) => {
+	const [selectSlot, setSelectSlot] = useState('');
+	const navigate = useNavigate();
 
 	const availableTime = `${slot.time}`;
-	console.log(availableTime);
+
 	const stime = moment(`${availableTime.split('-')[0]}`, 'h:mm A').format('HH:mm');
 	const etime = moment(`${availableTime.split('-')[1]}`, 'h:mm A').format('HH:mm');
-	console.log(stime);
 
-	let value = {
-		interval: '00:15',
-		startTime: stime,
-		endTime: etime,
-	};
+	let value = { interval: '00:15', startTime: stime, endTime: etime };
 
 	const timeSlots = generateTimeSlot(value);
-	console.log(timeSlots);
+	const handleContinue = () => {
+		navigate('/patient-details', { state: { doctor: doctor, date: date, selectSlot: selectSlot } });
+	};
+	// console.log(timeSlots);
 	return (
 		<div>
 			{/* <p className='text-2xl font-bold'>Select Available Slot</p> */}
@@ -46,25 +45,32 @@ const AvailableTime = ({ slot, date }) => {
 					</div>
 
 					<div>
-						<p className='text-blue-700 text-lg text-bold border-b border-darkblack'>{date}</p>
+						<p className='text-blue-700 text-lg text-bold border-b border-darkblack'>
+							{moment(date).format('LLLL')}
+						</p>
 					</div>
 				</div>
 
 				<div className='px-10 mt-2 max-h-80 overflow-auto'>
 					<ul className='mx-4 my-5 grid md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 gap-5 xl:gap-3'>
 						{timeSlots.slice(1, timeSlots.length - 1).map((slot, index) => (
-							<li
+							<button
 								key={index}
-								value={slot}
-								className='font-bold text-darkblack ring-2 ring-cyan-500 w-fit px-4 py-2 rounded-md'
+								onClick={() => setSelectSlot(slot)}
+								// value={slot}
+								className='focus:bg-info hover:bg-info hover:text-white focus:text-white font-bold text-darkblack ring-2 ring-cyan-500 w-fit px-4 py-2 rounded-md'
 							>
 								{slot}
-							</li>
+							</button>
 						))}
 					</ul>
 				</div>
 				<div className='flex justify-end mr-5 mt-5'>
-					<button type='button' className='text-white bg-action px-4 py-3 text-xl rounded-md'>
+					<button
+						onClick={handleContinue}
+						type='button'
+						className='text-white bg-action px-4 py-3 text-xl rounded-md'
+					>
 						Continue
 					</button>
 				</div>

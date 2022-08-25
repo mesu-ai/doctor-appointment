@@ -5,7 +5,7 @@ import DoctorCard from "../../components/molecules/DoctorCard";
 
 const HomePage = () => {
   const [isPending, doctors] = useDoctors();
-  console.log(doctors);
+  // console.log(doctors);
   return (
     <div
       className="container mx-auto px-10 my-10"

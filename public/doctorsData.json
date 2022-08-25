@@ -2,6 +2,7 @@
 [
   { "id":1,
     "name": "Dr. John Doe",
+    "specialist": "Heart",
     "org": "Kings London Hospital",
     "availibility": {
       "sun": "10:00 AM - 06:00 PM",
@@ -11,6 +12,7 @@
   },
   { "id":2,
     "name": "Dr. Mary Ellis",
+    "specialist": "Medicine",
     "org": "ABC Hospital",
     "availibility": {
       "sun": "10:00 AM - 06:00 PM",

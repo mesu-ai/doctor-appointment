@@ -7,7 +7,7 @@ import defaultImg from "../../assets/john.png";
 const DoctorCard = ({doctor={}}) => {
   const navigate=useNavigate();
   const handleAppointment=(doctor)=>(event)=>{
-    console.log(doctor,event)
+    // console.log(doctor,event)
     navigate('/appointment',{ state:{doctor:doctor} });
   }
   
