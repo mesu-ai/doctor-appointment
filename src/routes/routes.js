@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import HomePage from '../pages/homepage/HomePage';
+const PatientDetails = lazy(()=>import('../pages/patientDetails/PatientDetails'));
 const Appointment =lazy(()=>import('../pages/appointment/Appointment'));
 
 
@@ -17,6 +18,13 @@ const Appointment =lazy(()=>import('../pages/appointment/Appointment'));
 		exact: true,
 		component: Appointment,
 		name: 'Appointment',
+		protected: false,
+	},
+  {
+		path: '/patient-details',
+		exact: true,
+		component: PatientDetails,
+		name: 'PatientDetails',
 		protected: false,
 	},
   
