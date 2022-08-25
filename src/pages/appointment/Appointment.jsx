@@ -9,17 +9,10 @@ const newSlot = { day: '', time: '' };
 
 const Appointment = () => {
 	const [selectDay, setSelectDay] = useState('');
-	// const [timeSlot,setTimeSlot]=useState(newSlot);
-
 	const [startDate, setStartDate] = useState(new Date());
 	const { doctor } = useLocation()?.state;
 
-	// console.log(startDate,doctor);
-
-	const date = moment(startDate).format('LLLL');
 	const day = moment(startDate).format('llll').split(',')[0].toLocaleLowerCase();
-
-	// console.log(selectDay,timeSlot);
 
 	useEffect(() => {
 		for (const key in doctor?.availibility) {
@@ -31,8 +24,6 @@ const Appointment = () => {
 		}
 	}, [day, doctor.availibility, startDate]);
 
-	// console.log(newSlot);
-
 	return (
 		<div className='min-h-screen container mx-auto xl:px-10'>
 			<div className='grid grid-cols-1 md:grid-cols-3 gap-7'>
@@ -40,7 +31,7 @@ const Appointment = () => {
 					<Calender doctor={doctor} startDate={startDate} setStartDate={setStartDate} />
 				</div>
 				<div className='mt-40 md:mt-10 md:col-span-2'>
-					{selectDay && <AvailableTime slot={newSlot} date={startDate} doctor={doctor}/>}
+					{selectDay && <AvailableTime slot={newSlot} date={startDate} doctor={doctor} />}
 				</div>
 			</div>
 		</div>

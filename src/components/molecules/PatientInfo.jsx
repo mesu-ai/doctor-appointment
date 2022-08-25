@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form} from 'formik';
 import InputField from '../atoms/InputField';
 import SectionDivider from '../atoms/SectionDivider';
 import { validationSchema } from '../../validation/validationSchema';
 import HeadingText from '../atoms/HeadingText';
-import Modal from './Modal';
 import Confirm from '../organizations/Confirm';
 
 const initialValues = { name: '', phone: '', reason: '' };
