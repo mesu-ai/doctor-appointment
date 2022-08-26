@@ -1,8 +1,14 @@
 import React from 'react';
 import Modal from '../molecules/Modal';
 import success from '../../assets/sucess.png'
+import { useNavigate } from 'react-router-dom';
 
 const Confirm = ({open , setOpen}) => {
+	const navigate = useNavigate();
+	const handleButton=()=>{
+		setOpen(false);
+		navigate('/');
+	}
 	return (
 		<Modal open={open} setOpen={setOpen} title='Doctor Appointment'>
 			<div className='mx-auto flex items-center justify-center '>
@@ -15,11 +21,11 @@ const Confirm = ({open , setOpen}) => {
 			</div>
 			<div className='items-center px-10 py-3'>
 				<button 
-				onClick={()=>setOpen(false)}
+				onClick={handleButto}
 					type='button'
 					className='px-5 py-3 text-white bg-action text-base font-medium rounded-xl  '
 				>
-					Ok
+					Another Appointment
 				</button>
 			</div>
 		</Modal>

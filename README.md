@@ -15,8 +15,8 @@
 
 ## Available Scripts for run localhost
 
-In the project directory, you can run:
-### 'clone from git'
+In the project directory, you can run: -clone from git
+
 ### `npm i yarn`
 ### `yarn start`
 

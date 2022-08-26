@@ -14,6 +14,13 @@ const Appointment =lazy(()=>import('../pages/appointment/Appointment'));
 		protected: false,
 	},
   {
+		path: '/home',
+		exact: true,
+		component: HomePage,
+		name: 'HomePage',
+		protected: false,
+	},
+  {
 		path: '/appointment',
 		exact: true,
 		component: Appointment,
