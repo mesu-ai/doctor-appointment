@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Welcome to Doctor Appointment
 ## Live Site: https://doctor-appointment-bd.netlify.app/
 
 ## gitHub Link: https://github.com/mesu-ai/doctor-appointment
@@ -16,7 +16,7 @@
 ## Available Scripts for run localhost
 
 In the project directory, you can run:
-
+### 'clone from git'
 ### `npm i yarn`
 ### `yarn start`
 
