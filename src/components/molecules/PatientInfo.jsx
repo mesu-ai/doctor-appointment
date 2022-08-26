@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik, Form} from 'formik';
+import { Formik, Form } from 'formik';
 import InputField from '../atoms/InputField';
 import SectionDivider from '../atoms/SectionDivider';
 import { validationSchema } from '../../validation/validationSchema';
@@ -9,17 +9,14 @@ import Confirm from '../organizations/Confirm';
 const initialValues = { name: '', phone: '', reason: '' };
 
 const PatientInfo = () => {
-  const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
 	const handleSubmit = (values) => {
-    setOpen(true);
-    
-		console.log(values);
+		setOpen(true);
 	};
 	return (
 		<div>
-			
-      <HeadingText title='Patient Informations' className=' my-5 text-darkblue font-bold'/>
+			<HeadingText title='Patient Informations' className=' my-5 text-darkblue font-bold' />
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -28,11 +25,11 @@ const PatientInfo = () => {
 				<Form className='space-y-3'>
 					<SectionDivider>
 						<InputField label='Patient Name' type='text' name='name' placeholder='Mr. Abcd' />
-						<InputField label='Phone Number' type='text' name='phone' placeholder='01100000000'/>
+						<InputField label='Phone Number' type='text' name='phone' placeholder='01100000000' />
 					</SectionDivider>
 
-					<InputField label='Visit Reason' type='text' name='reason' placeholder='Eye Problem'/>
-					<InputField label='Address' type='text' name='address'placeholder='3/A Dhaka'/>
+					<InputField label='Visit Reason' type='text' name='reason' placeholder='Eye Problem' />
+					<InputField label='Address' type='text' name='address' placeholder='3/A Dhaka' />
 
 					<div>
 						<button
@@ -44,8 +41,7 @@ const PatientInfo = () => {
 					</div>
 				</Form>
 			</Formik>
-      <Confirm open={open} setOpen={setOpen}/>
-      
+			<Confirm open={open} setOpen={setOpen} />
 		</div>
 	);
 };

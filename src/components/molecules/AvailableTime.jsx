@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { generateTimeSlot } from '../../utils/generateTimeSlot';
 import Card from '../atoms/Card';
@@ -9,18 +9,28 @@ const AvailableTime = ({ slot, date, doctor }) => {
 	const [selectSlot, setSelectSlot] = useState('');
 	const navigate = useNavigate();
 
-	const availableTime = `${slot.time}`;
+	const availableTime = `${slot?.time}`;
 
+	// get start and end time of slot
 	const stime = moment(`${availableTime.split('-')[0]}`, 'h:mm A').format('HH:mm');
 	const etime = moment(`${availableTime.split('-')[1]}`, 'h:mm A').format('HH:mm');
 
 	let value = { interval: '00:15', startTime: stime, endTime: etime };
 
+	// generate avalable slot
 	const timeSlots = generateTimeSlot(value);
+
+	// continue button handeler
 	const handleContinue = () => {
+		if(!selectSlot){
+			alert('Select Time Slot');
+			document.getElementById('continueBtnId').setAttribute('disabled');
+			
+		}
 		navigate('/patient-details', { state: { doctor: doctor, date: date, selectSlot: selectSlot } });
 	};
-	// console.log(timeSlots);
+
+	
 	return (
 		<div>
 			<Card className='rounded-md pb-8'>
@@ -31,8 +41,9 @@ const AvailableTime = ({ slot, date, doctor }) => {
 					</div>
 
 					<div>
-						<p className='text-blue-700 text-lg text-bold border-b border-darkblack'>
-							{moment(date).format('LLLL')}
+						<p className='text-red-700 text-lg font-semibold border-b-2 border-darkblack'>
+						{moment(date).format('dddd')}, {moment(date).format('LL')}
+							
 						</p>
 					</div>
 				</div>
@@ -51,8 +62,10 @@ const AvailableTime = ({ slot, date, doctor }) => {
 						))}
 					</ul>
 				</div>
-				<div className='flex justify-end mr-5 mt-5'>
+				<div className='flex justify-between mr-5 mt-5 px-10'>
+					<p className='text-lg font-semibold'>Select A Time Slot For Coninue Next <span className='text-red-700 text-2xl font-extrabold'>*</span></p>
 					<button
+					 id='continueBtnId'
 						onClick={handleContinue}
 						type='button'
 						className='text-white bg-action px-4 py-3 text-xl rounded-md'

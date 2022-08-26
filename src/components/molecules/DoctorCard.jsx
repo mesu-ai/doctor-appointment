@@ -6,7 +6,6 @@ import Card from '../atoms/Card';
 const DoctorCard = ({ doctor = {} }) => {
 	const navigate = useNavigate();
 	const handleAppointment = (doctor) => (event) => {
-		// console.log(doctor,event)
 		navigate('/appointment', { state: { doctor: doctor } });
 	};
 

@@ -14,9 +14,8 @@ const weekdays = {
 	sat: 6,
 };
 
-const Calender = ({doctor,startDate, setStartDate}) => {
- 
-  const checkAvailableDay = () => {
+const Calender = ({ doctor, startDate, setStartDate }) => {
+	const checkAvailableDay = () => {
 		const availableDays = [];
 
 		for (const key in weekdays) {
@@ -24,9 +23,7 @@ const Calender = ({doctor,startDate, setStartDate}) => {
 
 			for (const available in doctor.availibility) {
 				if (available === key) {
-				
 					availableDays.push(dayNumber);
-					
 				} else if (available !== key) {
 					// console.log('unmatch');
 				}
@@ -35,6 +32,7 @@ const Calender = ({doctor,startDate, setStartDate}) => {
 		return availableDays;
 	};
 
+	// active available day
 	const isWeekday = (current) => {
 		const result = checkAvailableDay();
 
@@ -48,27 +46,22 @@ const Calender = ({doctor,startDate, setStartDate}) => {
 			moment(current).day() === result[6]
 		);
 	};
-  
 
-  return (
-    <div>
-      <DatePicker
-						className='w-full'
-						wrapperClassName='w-full py-2 '
-						// open
-						todayButton="Today"
-						filterDate={isWeekday}
-						selected={startDate}
-						onChange={(date) => {
-							setStartDate(date);
-              console.log(date);
-						}}
-						minDate={moment().toDate()}
-						dateFormat='MMMM d, yyyy h:mm aa'
-					/>
-      
-    </div>
-  );
+	return (
+		<div>
+			<DatePicker
+				className='w-full'
+				wrapperClassName='w-full py-2 '
+				filterDate={isWeekday}
+				selected={startDate}
+				onChange={(date) => {
+					setStartDate(date);
+				}}
+				minDate={moment().toDate()}
+				dateFormat='MMMM d, yyyy h:mm aa'
+			/>
+		</div>
+	);
 };
 
 export default Calender;

@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../atoms/Card';
 import HeadingText from '../atoms/HeadingText';
 
-const SheduleInfo = ({date ,selectSlot = ''}) => {
+const SheduleInfo = ({ date, selectSlot = '' }) => {
 	return (
 		<div>
 			<HeadingText title='Shedule For' />
@@ -12,8 +12,9 @@ const SheduleInfo = ({date ,selectSlot = ''}) => {
 					{moment(date).format('dddd')}
 				</p>
 				<div className='h-32'>
-					
-					<p className='shadow-lg rounded-md uppercase font-bold text-darkblack ring-2 px-4 py-3 w-fit mx-auto'>{selectSlot}</p>
+					<p className='shadow-lg rounded-md uppercase font-bold text-darkblack ring-2 px-4 py-3 w-fit mx-auto'>
+						{selectSlot}
+					</p>
 					<p className='mt-3 text-darkblue text-2xl flex justify-center items-center font-semibold'>
 						{moment(date).format('LL')}
 					</p>

@@ -29,7 +29,7 @@ const Appointment = () => {
 		<div className='min-h-screen container mx-auto xl:px-10'>
 			
 				<div className='mt-5'>
-					<HeadingText title='Select Appointment Date' className='mb-3'/>
+					<HeadingText title='Select Appointment Date' className='mb-3 text-darkblack'/>
 					<Calender doctor={doctor} startDate={startDate} setStartDate={setStartDate} />
 				</div>
 				<div className='mt-8'>
