@@ -21,7 +21,7 @@ const Confirm = ({open , setOpen}) => {
 			</div>
 			<div className='items-center px-10 py-3'>
 				<button 
-				onClick={handleButto}
+				onClick={handleButton}
 					type='button'
 					className='px-5 py-3 text-white bg-action text-base font-medium rounded-xl  '
 				>
