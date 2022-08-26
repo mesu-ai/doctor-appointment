@@ -4,6 +4,7 @@ import moment from 'moment';
 import '../../styles/styles.css';
 import Calender from '../../components/organizations/Calender';
 import AvailableTime from '../../components/molecules/AvailableTime';
+import HeadingText from '../../components/atoms/HeadingText';
 
 const newSlot = { day: '', time: '' };
 
@@ -26,14 +27,15 @@ const Appointment = () => {
 
 	return (
 		<div className='min-h-screen container mx-auto xl:px-10'>
-			<div className='grid grid-cols-1 md:grid-cols-3 gap-7'>
-				<div className=''>
+			
+				<div className='mt-5'>
+					<HeadingText title='Select Appointment Date' className='mb-3'/>
 					<Calender doctor={doctor} startDate={startDate} setStartDate={setStartDate} />
 				</div>
-				<div className='mt-40 md:mt-10 md:col-span-2'>
+				<div className='mt-8'>
 					{selectDay && <AvailableTime slot={newSlot} date={startDate} doctor={doctor} />}
 				</div>
-			</div>
+			
 		</div>
 	);
 };

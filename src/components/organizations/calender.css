@@ -1,7 +1,15 @@
 input{
-  color: white;
+  
+  color: rgb(4, 4, 35);
   outline: none;
-  display: none;
+  border: 1px solid #E6E8EC;
+  font-size: 18px;
+  padding: 12px 15px;
+  width: max-content;
+  border-radius: 12px;
+  font-weight: 700;
+ 
+  /* display: none; */
 }
 
 .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {

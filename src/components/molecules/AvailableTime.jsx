@@ -23,20 +23,6 @@ const AvailableTime = ({ slot, date, doctor }) => {
 	// console.log(timeSlots);
 	return (
 		<div>
-			{/* <p className='text-2xl font-bold'>Select Available Slot</p> */}
-			{/* <div className='mt-5 shadow-lg rounded-xl bg-ghostwhite p-4'>
-        <select className='w-full outline-none p-3 rounded-xl text-sm text-slategray font-medium'>
-          <option defaultChecked>Select Available Slot</option>
-          {timeSlots.slice(1, timeSlots.length - 1).map((slot, index) => (
-            <option
-              key={index}
-              value={slot}
-            >
-              {slot}
-            </option>
-          ))}
-        </select>
-      </div> */}
 			<Card className='rounded-md pb-8'>
 				<div className='px-10 py-5 flex justify-between shadow-md'>
 					<div>
@@ -52,7 +38,7 @@ const AvailableTime = ({ slot, date, doctor }) => {
 				</div>
 
 				<div className='px-10 mt-2 max-h-80 overflow-auto'>
-					<ul className='mx-4 my-5 grid md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 gap-5 xl:gap-3'>
+					<ul className='mx-4 my-5 grid md:grid-cols-3 xl:grid-cols-4 grid-cols-2 gap-5 xl:gap-3'>
 						{timeSlots.slice(1, timeSlots.length - 1).map((slot, index) => (
 							<button
 								key={index}

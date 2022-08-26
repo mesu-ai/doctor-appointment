@@ -55,7 +55,7 @@ const Calender = ({doctor,startDate, setStartDate}) => {
       <DatePicker
 						className='w-full'
 						wrapperClassName='w-full py-2 '
-						open
+						// open
 						todayButton="Today"
 						filterDate={isWeekday}
 						selected={startDate}
